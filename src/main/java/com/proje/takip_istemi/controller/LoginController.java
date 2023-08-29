@@ -10,11 +10,19 @@ import com.proje.takip_istemi.entity.Yonetici;
 import com.proje.takip_istemi.response.*;
 import com.proje.takip_istemi.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin
@@ -41,6 +49,9 @@ public class LoginController {
     @Autowired
     private YorumService yorumService;
 
+    @Autowired
+    private AdminService adminService;
+
     public LoginController(AppDAO appDAO){
         this.appDAO=appDAO;
     }
@@ -60,6 +71,11 @@ public class LoginController {
     @PostMapping(path = "/yonetici")
     public ResponseEntity<YoneticiDTO> findYonetici(@RequestBody LoginDTO loginDTO){
         return ResponseEntity.ok(yoneticiService.findYonetici(loginDTO));
+    }
+
+    @PostMapping(path = "/admin")
+    public ResponseEntity<AdminResponse> findAdmin(@RequestBody LoginDTO loginDTO){
+        return ResponseEntity.ok(adminService.findAdmin(loginDTO));
     }
 
 
@@ -94,7 +110,7 @@ public class LoginController {
     }
 
     @PutMapping("/proje/{proje_id}")
-    public ResponseEntity<ProjeResponse> updateProje(@PathVariable int proje_id,@RequestBody ProjeDTO projeDTO){
+    public ResponseEntity<Response> updateProje(@PathVariable int proje_id,@RequestBody ProjeDTO projeDTO){
         return ResponseEntity.ok(projeService.updateProje(proje_id,projeDTO));
     }
 
@@ -137,4 +153,78 @@ public class LoginController {
     public ResponseEntity<Response> saveYorum(@RequestBody YorumDTO yorumDTO){
         return ResponseEntity.ok(yorumService.saveYorum(yorumDTO));
     }
+
+    @GetMapping("/employee/{personel_id}")
+    public ResponseEntity<PersonelResponse> getPersonel(@PathVariable int personel_id){
+        return ResponseEntity.ok(personelService.getPersonel(personel_id));
+    }
+
+    @PostMapping("/monthly-data")
+    public List<ProjeResponse> getMonthlyData(@RequestBody DataRangeDTO dataRangeDTO) {
+        return projeService.getMonthlyData(dataRangeDTO.getStartDate(), dataRangeDTO.getEndDate());
+    }
+
+    @PostMapping("/personel/add")
+    public Response savePersonel(@RequestBody PersonelDTO personelDTO){
+        return personelService.savePersonel(personelDTO);
+    }
+
+    @DeleteMapping("/personel/{personel_id}")
+    public ResponseEntity<Response> deletePersonel(@PathVariable int personel_id){
+        return ResponseEntity.ok(personelService.deletePersonel(personel_id));
+    }
+
+    @PutMapping("/personel/{personel_id}")
+    public ResponseEntity<Response> updatePersonel(@PathVariable int personel_id,@RequestBody PersonelDTO personelDTO){
+        return ResponseEntity.ok(personelService.updatePersonel(personel_id,personelDTO));
+    }
+
+    @GetMapping("/yonetici/{admin_id}")
+    public ResponseEntity<List<YoneticiDTO>> getYoneticiler(@PathVariable int admin_id){
+        return ResponseEntity.ok(adminService.findYoneticiByAdminId(admin_id));
+    }
+
+    @PostMapping("/yonetici/add")
+    public ResponseEntity<Response> saveYonetici(@RequestBody YoneticiDTO yoneticiDTO){
+        return ResponseEntity.ok(yoneticiService.saveYonetici(yoneticiDTO));
+    }
+
+    @DeleteMapping("/yonetici/{yonetici_id}")
+    public ResponseEntity<Response> deleteYonetici(@PathVariable int yonetici_id){
+        return ResponseEntity.ok(yoneticiService.deleteYonetici(yonetici_id));
+    }
+
+    @PutMapping("/yonetici/{yonetici_id}")
+    public ResponseEntity<Response> updateYonetici(@PathVariable int yonetici_id,@RequestBody YoneticiDTO yoneticiDTO){
+        return ResponseEntity.ok(yoneticiService.updateYonetici(yonetici_id,yoneticiDTO));
+    }
+
+    @GetMapping("/logs")
+    public ResponseEntity<List<String>> getLogs() {
+        String logFilePath = "logs/application.log";
+
+        List<String> logLines = new ArrayList<>();
+
+        try {
+            // Log dosyasını satır satır okuma
+            BufferedReader reader = new BufferedReader(new FileReader(logFilePath));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                logLines.add(line);
+            }
+            reader.close();
+
+            // Log satırlarını JSON formatında dizi olarak döndürme
+            return ResponseEntity.ok().body(logLines);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body(null);
+        }
+    }
+
+    @GetMapping("/kullanicilar")
+    public ResponseEntity<List<UsersResponse> > getKullanicilar(){
+        return ResponseEntity.ok(userService.findKullaniciler());
+    }
+
 }

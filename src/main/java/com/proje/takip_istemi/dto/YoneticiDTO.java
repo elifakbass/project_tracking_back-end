@@ -4,7 +4,13 @@ public class YoneticiDTO {
 
     int id;
 
+    int admin_id;
+
     String name;
+
+    String email;
+
+    String password;
 
     String kurumAdi;
 
@@ -12,6 +18,9 @@ public class YoneticiDTO {
 
     String image;
 
+    public YoneticiDTO (){
+
+    }
 
     public YoneticiDTO(int id, String name, String kurumAdi, int personelSayisi, String image) {
         this.id = id;
@@ -61,5 +70,27 @@ public class YoneticiDTO {
         this.image = image;
     }
 
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getAdmin_id() {
+        return admin_id;
+    }
+
+    public void setAdmin_id(int admin_id) {
+        this.admin_id = admin_id;
+    }
 }

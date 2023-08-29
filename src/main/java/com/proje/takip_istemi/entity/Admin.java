@@ -22,8 +22,8 @@ public class Admin {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(mappedBy = "admin")
-    private List<Yonetici> yönetici;
+    @OneToMany(mappedBy = "admin",cascade = CascadeType.ALL)
+    private List<Yonetici> yonetici;
 
 
 
@@ -68,12 +68,12 @@ public class Admin {
     public void setPassword(String password) {
         this.password = password;
     }
-    public List<Yonetici> getYönetici() {
-        return yönetici;
+    public List<Yonetici> getYonetici() {
+        return yonetici;
     }
 
-    public void setYönetici(List<Yonetici> yönetici) {
-        this.yönetici = yönetici;
+    public void setYonetici(List<Yonetici> yönetici) {
+        this.yonetici = yonetici;
     }
 
     @Override

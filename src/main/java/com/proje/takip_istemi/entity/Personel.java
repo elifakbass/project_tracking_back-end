@@ -49,7 +49,7 @@ public class Personel {
     private List<Yorum> yorumlar;
 
 
-    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,CascadeType.PERSIST ,CascadeType.REFRESH })
+    @ManyToOne
     @JoinColumn(name = "yonetici_id")
     private Yonetici yonetici;
 
@@ -77,14 +77,21 @@ public class Personel {
 
     }
 
-    public Personel(int id, String email, String password, String department, String unvan, String yetkinlikler, String image) {
-        this.id = id;
+    public Personel(String name,String email, String password, String department, String unvan, String yetkinlikler, String image) {
+        this.name=name;
         this.email = email;
         this.password = password;
         this.department = department;
         this.unvan = unvan;
         this.yetkinlikler = yetkinlikler;
         this.image = image;
+    }
+
+    public Personel(String name, String department, String unvan, String yetkinlikler) {
+        this.name = name;
+        this.department = department;
+        this.unvan = unvan;
+        this.yetkinlikler = yetkinlikler;
     }
 
     public int getId() {

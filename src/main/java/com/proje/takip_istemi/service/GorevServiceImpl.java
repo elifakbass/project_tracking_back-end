@@ -73,17 +73,18 @@ public class GorevServiceImpl implements GorevService{
         Gorev gorev=new Gorev(gorevDTO.getName(),gorevDTO.getSonTarih(),gorevDTO.getDurum(),gorevDTO.getIcerik());
         Optional<Personel> personel=personelRepository.findById(gorevDTO.getSorumlu());
         Optional<Proje> proje=projeRepository.findById(gorevDTO.getProje());
-
+        Personel temp=null;
+        Proje tempProje=null;
         if(personel.isPresent()){
-            Personel temp=personel.get();
+            temp=personel.get();
             gorev.setPersonel(temp);
         }
         if(proje.isPresent()){
-            Proje temp=proje.get();
-            gorev.setProje(temp);
+            tempProje=proje.get();
+            gorev.setProje(tempProje);
         }
         gorevRepository.save(gorev);
-        Response response=new Response("Gorev eklendi",true);
+        Response response=new Response( temp.getName()+" adlı personele görev atandı. Proje id:"+tempProje.getId(),true);
         return response;
     }
 
@@ -102,15 +103,16 @@ public class GorevServiceImpl implements GorevService{
     @Override
     public Response updateGorev(int id, GorevDTO gorevDTO) {
         Optional<Gorev> gorev=gorevRepository.findById(id);
+        Gorev gorev1=null;
         if(gorev.isPresent()){
-            Gorev gorev1=gorev.get();
+            gorev1=gorev.get();
             gorev1.setIcerik(gorevDTO.getIcerik());
             gorev1.setDurum(gorevDTO.getDurum());
             gorev1.setSonTarih(gorevDTO.getSonTarih());
 
             appDAO.updateGorev(gorev1);
 
-            Response response=new Response("gorev guncellendi",true);
+            Response response=new Response(gorev1.getName()+" adlı görev guncellendi",true);
             return response;
         }
         return new Response("gorev bulunamdi",false);
@@ -133,11 +135,12 @@ public class GorevServiceImpl implements GorevService{
     @Override
     public Response updateDurumGorev(int id, DurumDTO durumDTO) {
         Optional<Gorev> gorev=gorevRepository.findById(id);
+        Gorev temp=null;
         if(gorev.isPresent()){
-            Gorev temp=gorev.get();
+            temp=gorev.get();
             temp.setDurum(durumDTO.getDurum());
             appDAO.updateGorev(temp);
-            return new Response("Gorev guncellendi",true);
+            return new Response(temp.getName()+" adlı görevin durumu güncellendi guncellendi",true);
         }
         return new Response("Gorev bulunamadi",false);
     }

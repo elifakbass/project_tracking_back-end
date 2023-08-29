@@ -14,4 +14,10 @@ public interface YoneticiService {
     YoneticiDTO findYonetici(LoginDTO loginDTO);
 
     List<PersonelResponse> findpersoneller(int theId);
+
+    Response saveYonetici(YoneticiDTO yoneticiDTO);
+
+    Response deleteYonetici(int id);
+
+    Response updateYonetici(int id,YoneticiDTO yoneticiDTO);
 }

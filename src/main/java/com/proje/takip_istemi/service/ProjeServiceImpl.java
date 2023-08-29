@@ -16,6 +16,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -54,7 +55,7 @@ public class ProjeServiceImpl implements ProjeService {
         );
 
         Optional<Personel> personel =personelRepository.findById(projeDTO.getSorumlu());
-        Personel tempPersonel;
+        Personel tempPersonel=null;
         if(personel.isPresent() && proje!=null){
             tempPersonel=personel.get();
             proje.addPersonel(tempPersonel);
@@ -62,7 +63,8 @@ public class ProjeServiceImpl implements ProjeService {
 
         projeRepository.save(proje);
 
-        return proje.getName();
+        String result="Yeni proje oluşturuldu. Sorumlu id:"+tempPersonel.getId();
+        return result;
     }
 
     @Override
@@ -83,7 +85,7 @@ public class ProjeServiceImpl implements ProjeService {
     }
 
     @Override
-    public ProjeResponse updateProje(int id,ProjeDTO projeDTO) {
+    public Response updateProje(int id,ProjeDTO projeDTO) {
         Optional<Proje> proje =projeRepository.findById(id);
         if(proje.isPresent()){
             Proje proje1=proje.get();
@@ -94,13 +96,10 @@ public class ProjeServiceImpl implements ProjeService {
 
             appDAO.updateProje(proje1);
 
-            ProjeResponse projeResponse=new ProjeResponse(proje1.getId(),proje1.getName(),proje1.getDurum(),proje1.getIcerik(),proje1.getSonTarih(),true);
-            return projeResponse;
+            return new Response("Proje Güncellendi id:"+proje1.getId(),true);
 
         }
-        ProjeResponse projeResponse=new ProjeResponse(false,"proje bulunamadi id: "+id);
-        return  projeResponse;
-
+        return new Response("Proje bulunamadi",false);
     }
 
     @Override
@@ -137,6 +136,17 @@ public class ProjeServiceImpl implements ProjeService {
             Personel personel=yorum.getPersonel();
             YorumResponse yorumResponse=new YorumResponse(yorum.getIcerik(),personel.getId());
             responses.add(yorumResponse);
+        }
+        return responses;
+    }
+    public List<ProjeResponse> getMonthlyData(LocalDate startDate, LocalDate endDate) {
+        String startStr = startDate.toString();
+        String endStr = endDate.toString();
+        List<Proje> projects = projeRepository.getMonthlyData(startStr, endStr);
+        List<ProjeResponse> responses = new ArrayList<>();
+        for (Proje proje : projects) {
+            ProjeResponse res = new ProjeResponse(proje.getId(), proje.getName(), proje.getDurum(), proje.getIcerik(), proje.getSonTarih(), true);
+            responses.add(res);
         }
         return responses;
     }

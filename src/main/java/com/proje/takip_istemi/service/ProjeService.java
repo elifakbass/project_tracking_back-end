@@ -7,6 +7,7 @@ import com.proje.takip_istemi.response.ProjeResponse;
 import com.proje.takip_istemi.response.Response;
 import com.proje.takip_istemi.response.YorumResponse;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface ProjeService {
@@ -17,11 +18,13 @@ public interface ProjeService {
 
     Response deleteById(int id);
 
-    ProjeResponse updateProje(int id,ProjeDTO projeDTO);
+    Response updateProje(int id,ProjeDTO projeDTO);
 
     Response updateProjeByDurum(int id, DurumDTO durumDTO);
 
     ProjeResponse  getProje(int id);
 
     List<YorumResponse> getYorumlarById(int id);
+
+    List<ProjeResponse> getMonthlyData(LocalDate startDate, LocalDate endDate);
 }

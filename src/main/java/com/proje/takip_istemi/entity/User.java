@@ -20,15 +20,18 @@ public class User {
     @Column(name = "role")
     private int role;
 
+    @Column(name = "image")
+    private String image;
     public User() {
 
     }
 
-    public User(String username, String password, int role, int id) {
+    public User(String username, String password, int role, int id,String image) {
         this.username = username;
         this.password = password;
         this.role = role;
         this.id = id;
+        this.image=image;
     }
 
     public String getUsername() {
@@ -61,5 +64,13 @@ public class User {
 
     public void setRole(int role) {
         this.role = role;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

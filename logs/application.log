@@ -1,0 +1,57 @@
+2023-08-29 00:20:07,534 [http-nio-8080-exec-2] INFO  c.p.t.aspect.DemoLoggingAspect - Proje Güncellendi id:1
+2023-08-29 00:20:19,432 [http-nio-8080-exec-3] INFO  c.p.t.aspect.DemoLoggingAspect - Yeni proje oluşturuldu. Sorumlu id:1
+2023-08-29 00:20:33,788 [http-nio-8080-exec-2] INFO  c.p.t.aspect.DemoLoggingAspect - Maryadlı yönetici personel oluşturdu. id:15
+2023-08-29 00:21:42,736 [http-nio-8080-exec-3] INFO  c.p.t.aspect.DemoLoggingAspect - personel silindi id: 15
+2023-08-29 00:21:50,683 [http-nio-8080-exec-5] INFO  c.p.t.aspect.DemoLoggingAspect - Proje silindi id:15
+2023-08-29 19:48:09,029 [http-nio-8080-exec-7] INFO  c.p.t.aspect.DemoLoggingAspect - Yönetici Kaydedildi id: 3
+2023-08-29 19:48:17,497 [http-nio-8080-exec-3] INFO  c.p.t.aspect.DemoLoggingAspect - Yonetici guncellendi id :3
+2023-08-29 19:48:24,507 [http-nio-8080-exec-9] INFO  c.p.t.aspect.DemoLoggingAspect - yonetici silindi id: 3
+2023-08-29 19:49:15,521 [http-nio-8080-exec-7] INFO  c.p.t.aspect.DemoLoggingAspect - Yeni proje oluşturuldu. Sorumlu id:1
+2023-08-29 19:49:28,222 [http-nio-8080-exec-5] INFO  c.p.t.aspect.DemoLoggingAspect - cat adlı personele görev atandı. Proje id:4
+2023-08-29 19:49:37,768 [http-nio-8080-exec-2] INFO  c.p.t.aspect.DemoLoggingAspect - mqtt api yazılması adlı görev guncellendi
+2023-08-29 19:49:40,998 [http-nio-8080-exec-5] INFO  c.p.t.aspect.DemoLoggingAspect - mqtt api yazılması adlı görev guncellendi
+2023-08-29 19:49:46,147 [http-nio-8080-exec-7] INFO  c.p.t.aspect.DemoLoggingAspect - Proje Güncellendi id:4
+2023-08-29 19:49:52,685 [http-nio-8080-exec-10] INFO  c.p.t.aspect.DemoLoggingAspect - Proje Güncellendi id:4
+2023-08-29 19:49:54,485 [http-nio-8080-exec-1] INFO  c.p.t.aspect.DemoLoggingAspect - Proje Güncellendi id:4
+2023-08-29 19:50:01,047 [http-nio-8080-exec-6] INFO  c.p.t.aspect.DemoLoggingAspect - gorev silindi id:3
+2023-08-29 19:50:07,694 [http-nio-8080-exec-3] INFO  c.p.t.aspect.DemoLoggingAspect - Proje silindi id:4
+2023-08-29 19:50:26,499 [http-nio-8080-exec-3] INFO  c.p.t.aspect.DemoLoggingAspect - mary adlı yönetici, personel oluşturdu. id:3
+2023-08-29 19:50:33,578 [http-nio-8080-exec-8] INFO  c.p.t.aspect.DemoLoggingAspect - Personel güncellendi id:3
+2023-08-29 19:50:39,840 [http-nio-8080-exec-7] INFO  c.p.t.aspect.DemoLoggingAspect - personel silindi id: 3
+2023-08-29 19:50:57,635 [http-nio-8080-exec-5] INFO  c.p.t.aspect.DemoLoggingAspect - Proje Güncellendi
+2023-08-29 19:51:25,571 [http-nio-8080-exec-4] INFO  c.p.t.aspect.DemoLoggingAspect - yorum kaydedildi
+2023-08-29 20:13:40,320 [http-nio-8080-exec-5] INFO  c.p.t.aspect.DemoLoggingAspect - Yönetici Kaydedildi id: 4
+2023-08-29 20:13:47,896 [http-nio-8080-exec-3] INFO  c.p.t.aspect.DemoLoggingAspect - Yonetici guncellendi id :4
+2023-08-29 20:13:55,264 [http-nio-8080-exec-6] INFO  c.p.t.aspect.DemoLoggingAspect - yonetici silindi id: 4
+2023-08-29 20:14:46,158 [http-nio-8080-exec-2] INFO  c.p.t.aspect.DemoLoggingAspect - Yeni proje oluşturuldu. Sorumlu id:1
+2023-08-29 20:14:59,077 [http-nio-8080-exec-8] INFO  c.p.t.aspect.DemoLoggingAspect - cat adlı personele görev atandı. Proje id:5
+2023-08-29 20:15:07,347 [http-nio-8080-exec-10] INFO  c.p.t.aspect.DemoLoggingAspect - mqtt api yazılması adlı görev guncellendi
+2023-08-29 20:15:09,497 [http-nio-8080-exec-8] INFO  c.p.t.aspect.DemoLoggingAspect - mqtt api yazılması adlı görev guncellendi
+2023-08-29 20:15:16,575 [http-nio-8080-exec-2] INFO  c.p.t.aspect.DemoLoggingAspect - Proje Güncellendi id:5
+2023-08-29 20:15:20,881 [http-nio-8080-exec-5] INFO  c.p.t.aspect.DemoLoggingAspect - Proje Güncellendi id:5
+2023-08-29 20:15:22,565 [http-nio-8080-exec-4] INFO  c.p.t.aspect.DemoLoggingAspect - Proje Güncellendi id:5
+2023-08-29 20:15:28,416 [http-nio-8080-exec-1] INFO  c.p.t.aspect.DemoLoggingAspect - gorev silindi id:5
+2023-08-29 20:15:35,921 [http-nio-8080-exec-3] INFO  c.p.t.aspect.DemoLoggingAspect - Proje silindi id:5
+2023-08-29 20:15:58,067 [http-nio-8080-exec-5] INFO  c.p.t.aspect.DemoLoggingAspect - mary adlı yönetici, personel oluşturdu. id:4
+2023-08-29 20:16:05,892 [http-nio-8080-exec-2] INFO  c.p.t.aspect.DemoLoggingAspect - Personel güncellendi id:4
+2023-08-29 20:16:13,218 [http-nio-8080-exec-7] INFO  c.p.t.aspect.DemoLoggingAspect - personel silindi id: 4
+2023-08-29 20:16:31,911 [http-nio-8080-exec-4] INFO  c.p.t.aspect.DemoLoggingAspect - ButonRengi adlı görevin durumu güncellendi guncellendi
+2023-08-29 20:16:50,918 [http-nio-8080-exec-7] INFO  c.p.t.aspect.DemoLoggingAspect - yorum kaydedildi
+2023-08-29 20:17:09,026 [http-nio-8080-exec-2] INFO  c.p.t.aspect.DemoLoggingAspect - API adlı görevin durumu güncellendi guncellendi
+2023-08-29 20:33:45,187 [http-nio-8080-exec-7] INFO  c.p.t.aspect.DemoLoggingAspect - cat adlı personele görev atandı. Proje id:1
+2023-08-29 20:35:04,152 [http-nio-8080-exec-10] INFO  c.p.t.aspect.DemoLoggingAspect - Yönetici Kaydedildi id: 5
+2023-08-29 20:35:10,686 [http-nio-8080-exec-3] INFO  c.p.t.aspect.DemoLoggingAspect - Yonetici guncellendi id :5
+2023-08-29 20:35:16,407 [http-nio-8080-exec-7] INFO  c.p.t.aspect.DemoLoggingAspect - yonetici silindi id: 5
+2023-08-29 20:36:04,702 [http-nio-8080-exec-4] INFO  c.p.t.aspect.DemoLoggingAspect - Yeni proje oluşturuldu. Sorumlu id:1
+2023-08-29 20:36:15,896 [http-nio-8080-exec-10] INFO  c.p.t.aspect.DemoLoggingAspect - cat adlı personele görev atandı. Proje id:6
+2023-08-29 20:36:22,704 [http-nio-8080-exec-7] INFO  c.p.t.aspect.DemoLoggingAspect - mqtt api yazılması adlı görev guncellendi
+2023-08-29 20:36:26,393 [http-nio-8080-exec-10] INFO  c.p.t.aspect.DemoLoggingAspect - mqtt api yazılması adlı görev guncellendi
+2023-08-29 20:36:33,001 [http-nio-8080-exec-4] INFO  c.p.t.aspect.DemoLoggingAspect - Proje Güncellendi id:6
+2023-08-29 20:36:35,061 [http-nio-8080-exec-2] INFO  c.p.t.aspect.DemoLoggingAspect - Proje Güncellendi id:6
+2023-08-29 20:36:41,533 [http-nio-8080-exec-1] INFO  c.p.t.aspect.DemoLoggingAspect - gorev silindi id:7
+2023-08-29 20:36:48,271 [http-nio-8080-exec-1] INFO  c.p.t.aspect.DemoLoggingAspect - Proje silindi id:6
+2023-08-29 20:37:04,138 [http-nio-8080-exec-1] INFO  c.p.t.aspect.DemoLoggingAspect - mary adlı yönetici, personel oluşturdu. id:5
+2023-08-29 20:37:11,562 [http-nio-8080-exec-3] INFO  c.p.t.aspect.DemoLoggingAspect - Personel güncellendi id:5
+2023-08-29 20:37:15,987 [http-nio-8080-exec-9] INFO  c.p.t.aspect.DemoLoggingAspect - personel silindi id: 5
+2023-08-29 20:37:17,220 [http-nio-8080-exec-4] INFO  c.p.t.aspect.DemoLoggingAspect - personel bulunamadi
+2023-08-29 20:38:25,492 [http-nio-8080-exec-4] INFO  c.p.t.aspect.DemoLoggingAspect - yorum kaydedildi

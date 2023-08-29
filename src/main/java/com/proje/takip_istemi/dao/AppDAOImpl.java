@@ -2,11 +2,13 @@ package com.proje.takip_istemi.dao;
 
 import com.proje.takip_istemi.entity.*;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,7 +33,13 @@ public class AppDAOImpl implements AppDAO {
                 );
 
         query.setParameter("data",theId);
-        Personel personel=query.getSingleResult();
+        Personel personel = null;
+
+        try {
+            personel = query.getSingleResult();
+        } catch (NoResultException ex) {
+            return Collections.emptyList();
+        }
 
         List<Proje> projeler = personel.getProjeler();
 
@@ -126,5 +134,37 @@ public class AppDAOImpl implements AppDAO {
 
 
     }
+
+    @Override
+    @Transactional
+    public void updatePersonel(Personel personel) {
+        entityManager.merge(personel);
+    }
+
+    @Override
+    public List<Yonetici> findYoneticilerByAdminId(int id) {
+        TypedQuery<Admin> query=entityManager.createQuery(
+                "select a from Admin a "
+                +"JOIN FETCH a.yonetici "
+                +"where a.id= :data", Admin.class
+        );
+        query.setParameter("data",id);
+
+        Admin admin=null;
+        try{
+            admin=query.getSingleResult();
+        }catch (NoResultException exc){
+            return Collections.emptyList();
+        }
+        List<Yonetici> yoneticiList=admin.getYonetici();
+        return yoneticiList;
+    }
+
+    @Override
+    @Transactional
+    public void updateYonetici(Yonetici yonetici) {
+        entityManager.merge(yonetici);
+    }
+
 
 }

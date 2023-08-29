@@ -1,0 +1,15 @@
+<configuration>
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/application.log</file>
+        <encoder>
+            <pattern>%d [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.proje.takip_istemi.aspect.DemoLoggingAspect" level="INFO">
+        <appender-ref ref="FILE"/>
+    </logger>
+
+    <!-- Özel bir sınıf veya paket için log seviyesi ayarı -->
+    <logger name="com.proje.takip_istemi.service.*" level="INFO"/>
+</configuration>

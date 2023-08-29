@@ -19,4 +19,10 @@ public interface AppDAO {
     void updateGorev(Gorev gorev);
 
     List<Yorum> getYorumlarByProjeId(int id);
+
+    void updatePersonel(Personel personel);
+
+    List<Yonetici> findYoneticilerByAdminId(int id);
+
+    void updateYonetici(Yonetici yonetici);
 }

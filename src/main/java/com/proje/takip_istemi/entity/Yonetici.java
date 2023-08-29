@@ -32,10 +32,10 @@ public class Yonetici {
     private String image;
 
 
-    @OneToMany(mappedBy = "yonetici")
+    @OneToMany(mappedBy = "yonetici",cascade = CascadeType.ALL)
     private List<Personel> personelList;
 
-    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,CascadeType.PERSIST ,CascadeType.REFRESH })
+    @ManyToOne()
     @JoinColumn(name = "admin_id")
     private Admin admin;
 
@@ -51,12 +51,13 @@ public class Yonetici {
 
     }
 
-    public Yonetici(String name, String email, String password, String kurumAdi, int personelSayisi) {
+    public Yonetici(String name, String email, String password, String kurumAdi, int personelSayisi,String image) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.kurumAdi = kurumAdi;
         this.personelSayisi = personelSayisi;
+        this.image=image;
     }
 
     public int getId() {
